@@ -20,8 +20,8 @@ If you do not need hardware presets and just want a fast, local Wi-Fi remote wit
 * 🤖 **Android:** [Download on Google Play](https://play.google.com/store/apps/details?id=com.john.soundtouch&pcampaignid=web_share)
 
 ## Documentation & Setup Guides
-* 📖 **Primary User Manual:** [Controller Pro Web Manual](https://jonnywhy2274-byte.github.io/controller-pro-manual/)
-* 📖 **Alternative Manual Mirror:** [Google Sites Manual](https://sites.google.com/view/controller-pro-user-manual/home)
+* 📖 **Primary User Manual:** [Google Sites Manual](https://sites.google.com/view/controller-pro-user-manual/home)
+* 📖 **Controller Cube Manual Mirror:** [Controller Cube Web Manual](https://jonnywhy2274-byte.github.io/controller-pro-manual/)
 * 🎥 **Video Tutorials:** [Official YouTube Playlist](https://www.youtube.com/playlist?list=PLGSxQe_HudUg)
 
 ---
