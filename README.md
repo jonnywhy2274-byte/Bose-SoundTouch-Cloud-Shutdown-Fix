@@ -1,28 +1,31 @@
-# Bose-SoundTouch-Cloud-Shutdown-Fix
-# Bose SoundTouch Cloud Shutdown Fix: Controller Pro & Controller Cube
+# Bose SoundTouch Cloud Shutdown Fix: Controller Pro, Controller Cube & Controller Cloud
 
-On May 6, 2026, Bose permanently shut down the cloud servers powering the SoundTouch ecosystem. This repository serves as the official documentation and resource hub for **Controller Pro** and the **Controller Cube**—a 100% local, zero-subscription hardware and software ecosystem designed to permanently rescue orphaned Bose SoundTouch speakers.
+On May 6, 2026, Bose permanently shut down the cloud servers powering the SoundTouch ecosystem. This repository serves as the official documentation and resource hub for the **Controller Pro** ecosystem—a complete hardware, software, and cloud suite designed to permanently rescue orphaned Bose SoundTouch speakers.
 
-## The Local Solution
-Instead of relying on third-party cloud relays with monthly fees, the Controller Cube acts as a dedicated local server that plugs directly into your home Wi-Fi router. It restores:
-* **Hardware Presets 1–6:** Burns TuneIn stations, custom web streams, and NAS drives directly into the speaker's NVRAM so you can use your physical buttons without a phone.
-* **Native Direct Streaming:** Restores native TuneIn, custom URL streaming, and DLNA/SMB NAS drive injection.
-* **100% Wireless Zero-Touch Setup:** Wirelessly adopts speakers via the companion app without USB drives or terminal commands.
+## The 3-Tier Architecture
+We offer three distinct ways to restore your system, depending on whether you want a local hardware appliance, a DIY OS, or a zero-hardware cloud fix. All three tiers permanently restore **Hardware Presets 1–6**, **Native TuneIn / Custom URLs**, and **Local NAS Drive linking**.
 
-## Deployment Options (Hardware & DIY OS)
-You can deploy the local cloud server using our turnkey aluminum hardware appliance, or flash the DIY Master OS to your own Raspberry Pi 3B+ (or newer) / Home Assistant setup.
-* 🌐 **Official Website & Hardware Store:** [controllerpro.app](https://controllerpro.app)
-* 🛒 **DIY Master OS Digital Download:** [Get the Master OS via Lemon Squeezy](https://controllerpro.lemonsqueezy.com/checkout/buy/b4aff15b-e904-43e5-ada9-dd7320981eaa)
+### 1. Controller Pro (The Mobile App)
+The universal command center. Even without a backend server, the app functions as a fast, local Wi-Fi remote allowing multi-room grouping, Spotify/Amazon audio casting, and Surround Sound Desk calibration.
+- 🍎 **iOS / iPadOS:** [Download on the Apple App Store](https://apps.apple.com/gb/app/controller-pro-for-soundtouch/id6762059088)
+- 🤖 **Android:** [Download on Google Play](https://play.google.com/store/apps/details?id=com.john.soundtouch&pcampaignid=web_share)
 
-## Mobile App (Standalone Wi-Fi Remote)
-If you do not need hardware presets and just want a fast, local Wi-Fi remote with multi-room grouping, Spotify/Amazon injection, and internet radio casting, download the standalone Controller Pro app:
-* 🍎 **iOS / iPadOS:** [Download on the Apple App Store](https://apps.apple.com/gb/app/controller-pro-for-soundtouch/id6762059088)
-* 🤖 **Android:** [Download on Google Play](https://play.google.com/store/apps/details?id=com.john.soundtouch&pcampaignid=web_share)
+### 2. Controller Cube (Local Hardware & DIY OS)
+For users who want 100% local, offline control with zero subscriptions and zero telemetry. The Cube intercepts the speaker's traffic on your local router to emulate the retired Bose cloud.
+- 🌐 **Official Website & Pre-Built Hardware:** [controllerpro.app](https://controllerpro.app) *(Batch 2 launching Oct 28th!)*
+- 🛒 **DIY Master OS Digital Download:** Flash the Master OS to your own Raspberry Pi 3B+, NanoPi, or Home Assistant server. [Get the Master OS via Lemon Squeezy](https://controllerpro.lemonsqueezy.com/checkout/buy/b4aff15b-e904-43e5-ada9-dd7320981eaa)
+
+### 3. Controller Cloud (Hosted Service)
+For users who want to restore their speakers instantly over the air without purchasing or managing any physical hardware or Raspberry Pi boards. *(Coming Soon).*
+
+## 100% Wireless Zero-Touch Setup (v9.0)
+No more USB drives or complex SSH terminal commands. Using the companion app's native network engine, you can wirelessly adopt your speakers over Wi-Fi in seconds.
 
 ## Documentation & Setup Guides
-* 📖 **Primary User Manual:** [Google Sites Manual](https://sites.google.com/view/controller-pro-user-manual/home)
-* 📖 **Controller Cube Manual Mirror:** [Controller Cube Web Manual](https://jonnywhy2274-byte.github.io/controller-pro-manual/)
-* 🎥 **Video Tutorials:** [Official YouTube Playlist](https://www.youtube.com/playlist?list=PLGSxQe_HudUg)
+- 📖 **Primary User Manual:** [Google Sites Manual](https://sites.google.com/view/controller-pro-user-manual/home) *(Note for Android users: the Auto-Link toggle is located under 'Speaker Icon > Network & Speakers')*
+- 📖 **Controller Cube Manual Mirror:** [Controller Cube Web Manual](https://jonnywhy2274-byte.github.io/controller-pro-manual/)
+- 🎥 **Video Tutorials:** [Official YouTube Playlist](https://www.youtube.com/playlist?list=PLGSxQe_HudUg)
 
 ---
-*Built by John Why. Zero subscriptions. Zero telemetry. Buy once, own forever.*
+*Built by John Why. Zero telemetry. Buy once, own forever.*
+---
