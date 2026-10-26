@@ -3,10 +3,10 @@
 On May 6, 2026, Bose permanently shut down the cloud servers powering the SoundTouch ecosystem. This repository serves as the official documentation and resource hub for the **Controller Pro** ecosystem—a complete hardware, software, and cloud suite designed to permanently rescue orphaned Bose SoundTouch speakers.
 
 ## The 3-Tier Architecture
-We offer three distinct ways to restore your system, depending on whether you want a local hardware appliance, a DIY OS, or a zero-hardware cloud fix. All three tiers permanently restore **Hardware Presets 1–6**, **Native TuneIn / Custom URLs**, and **Local NAS Drive linking**.
+We offer three distinct ways to restore your system, depending on whether you want a local hardware appliance, a DIY OS, or a zero-hardware cloud fix. Two of those tiers permanently restore **Hardware Presets 1–6**, **Native TuneIn / Custom URLs**, and **Local NAS Drive linking**.
 
 ### 1. Controller Pro (The Mobile App)
-The universal command center. Even without a backend server, the app functions as a fast, local Wi-Fi remote allowing multi-room grouping, Spotify/Amazon audio casting, and Surround Sound Desk calibration.
+The universal command center. Even without a backend server, the app functions as a fast, local Wi-Fi remote allowing multi-room grouping, Spotify Connect/Bluetooth audio casting, and Surround Sound Desk calibration.
 - 🍎 **iOS / iPadOS:** [Download on the Apple App Store](https://apps.apple.com/gb/app/controller-pro-for-soundtouch/id6762059088)
 - 🤖 **Android:** [Download on Google Play](https://play.google.com/store/apps/details?id=com.john.soundtouch&pcampaignid=web_share)
 
@@ -15,7 +15,7 @@ For users who want 100% local, offline control with zero subscriptions and zero 
 - 🌐 **Official Website & Pre-Built Hardware:** [controllerpro.app](https://controllerpro.app) *(Batch 2 launching Oct 28th!)*
 - 🛒 **DIY Master OS Digital Download:** Flash the Master OS to your own Raspberry Pi 3B+, NanoPi, or Home Assistant server. [Get the Master OS via Lemon Squeezy](https://controllerpro.lemonsqueezy.com/checkout/buy/b4aff15b-e904-43e5-ada9-dd7320981eaa)
 
-### 3. Controller Cloud (Hosted Service)
+### 3. Controller Cloud (Hosted Service/Subscription)
 For users who want to restore their speakers instantly over the air without purchasing or managing any physical hardware or Raspberry Pi boards. *(Coming Soon).*
 
 ## 100% Wireless Zero-Touch Setup (v9.0)
