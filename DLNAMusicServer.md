@@ -1,85 +1,90 @@
-Hi everyone,
+Markdown
+## 💻 Bonus Guide: The £0 / $0 SoundTouch NAS (Repurposing an Old Laptop)
 
-When Bose killed the SoundTouch cloud servers back in May, thousands of us lost the ability to easily stream local music or add new NAS drives. If you are looking to get local streaming back online but don't want to drop £200+ on a dedicated Synology or QNAP enclosure just to host your MP3/FLAC library, you don't have to.
+When Bose permanently shut down the SoundTouch cloud servers in May 2026, thousands of users lost the ability to easily stream local music or link new NAS drives. If you want to get local FLAC/MP3 streaming back online without spending £200+ on a dedicated Synology or QNAP enclosure, you can repurpose any old Windows laptop gathering dust in a cupboard.
 
-If you have an old, slow Windows laptop gathering dust in a cupboard, you can wipe it and install OpenMediaVault (OMV)—a free, extremely lightweight Linux operating system that will turn that old laptop into a rock-solid 24/7 DLNA music server for your SoundTouch ecosystem.
+By wiping the old laptop and installing **OpenMediaVault (OMV)**—a free, lightweight Linux server OS—you can turn it into a silent, 24/7 dedicated DLNA music server for your SoundTouch ecosystem (complete with its own built-in battery backup!).
 
-Because laptops have built-in batteries (effectively a free UPS) and run silently, they make fantastic, low-power media nodes.
+---
 
-Here is the step-by-step guide to building your own budget NAS and bypassing the usual "laptop sleep" issues.
+### Phase 1: The Installation
+1. Download the free **OpenMediaVault ISO** from their official website (`openmediavault.org`).
+2. Use a free tool like **Rufus** or **BalenaEtcher** to flash the ISO onto a USB thumb drive.
+3. Plug the USB into your old laptop, boot from it, and follow the on-screen prompts to install the OMV operating system over the entire hard drive.
+4. Once finished, plug the laptop directly into your broadband router using an Ethernet cable and turn it on.
 
-Phase 1: The Installation
-Download the free OpenMediaVault ISO from their official website.
+---
 
-Use a free tool like Rufus or BalenaEtcher to flash the ISO onto a USB thumb drive.
+### Phase 1.5: The System Prep (Vital)
+Because OMV is a lightweight, barebones system, we need to install a few basic utilities before we can configure the laptop lid.
 
-Plug the USB into your old laptop, boot from it, and follow the on-screen prompts to install the OMV operating system over the entire hard drive.
+1. On the laptop's black terminal screen, log in with the username `root` and the password you created during setup.
+2. Update the package directory by typing:
+   ```bash
+   apt-get update
+Install the required system tools by typing:
 
-Once finished, plug the laptop directly into your broadband router using an Ethernet cable and turn it on.
-
-Phase 1.5: The System Prep (Vital)
-Because OMV is a lightweight, barebones system, we need to teach it a few basic commands before we can hack the laptop lid.
-
-On the laptop's black text screen, log in with the username root and the password you created during setup.
-
-Tell the system to update its app directory by typing: apt-get update and hit Enter.
-
-Install the vital system tools by typing exactly this: apt-get install sudo nano bash-completion curl -y and hit Enter.
-
-Let the screen scroll through the installation matrix. Once it stops, your system is fully prepped!
+Bash
+apt-get install sudo nano bash-completion curl -y
+Once the installation finishes scrolling, your system is prepped.
 
 Phase 2: The "Lid Hack" (Crucial for Laptops)
-By default, if you close a laptop lid, it goes to sleep and takes your server offline. We need to tell the server to ignore the lid completely.
+By default, closing a laptop lid puts the machine to sleep and takes your music server offline. Here is how to make the server ignore the lid completely:
 
-Type this exact command to open the power settings: nano /etc/systemd/logind.conf
+Open the systemd power configuration file:
 
+Bash
+nano /etc/systemd/logind.conf
 Scroll down to find the line that says #HandleLidSwitch=suspend.
 
-Delete the # at the start, and change the word suspend to ignore. It should look exactly like this: HandleLidSwitch=ignore
+Delete the # at the start and change suspend to ignore so it reads:
 
-Press Ctrl+O to save, hit Enter, then press Ctrl+X to exit.
+Ini, TOML
+HandleLidSwitch=ignore
+Press Ctrl+O to save, hit Enter, and press Ctrl+X to exit.
 
-Type systemctl restart systemd-logind and hit Enter.
+Restart the power service to apply the change:
 
-You can now safely close the laptop lid, tuck it away next to your router, and do the rest of the setup from the web browser on your main PC!
+Bash
+systemctl restart systemd-logind
+You can now safely close the laptop lid, tuck it away next to your router, and complete the rest of the setup from a web browser on your main computer!
 
 Phase 3: The "Single Drive" Bypass
-OMV is designed for massive servers and usually forbids you from putting music on the same drive that holds the operating system. Since a laptop only has one internal drive, we must bypass this constraint.
+OMV is designed for multi-bay servers and normally prevents you from storing media on the same drive that holds the operating system. Since a laptop usually has a single internal drive, we use an official plugin to bypass this:
 
-Look at the laptop screen one last time to find its IP address. Type that IP address into the web browser on your main computer.
+Check the laptop screen one last time to note its local IP address (e.g., 192.168.1.x) and type that IP into the web browser on your main PC/Mac.
 
-Log into the OMV web dashboard (Default Username: admin, Password: openmediavault).
+Log into the OMV web dashboard (Default Username: admin | Default Password: openmediavault).
 
-Go to System > Plugins in the left menu.
+Navigate to System > Plugins in the left menu.
 
-Search for sharerootfs, check the box, and click the install button (the down arrow).Note: Whenever OMV finishes a task, a yellow banner appears at the top. Always click the checkmark to apply changes.
+Search for sharerootfs, check the box, and click the Install button (the down arrow icon).
 
-Phase 4: Create the Music Folder & Network Share
-Now we create a folder and broadcast it to your Mac or Windows PC so you can easily drag and drop your music.
+Note: Whenever OMV finishes a task, a yellow banner appears at the top of the screen. Always click the checkmark to apply changes.
 
-Go to Storage > Shared Folders and click the + to create a folder. Name it Music.
+Phase 4: Create the Music Folder & Network Share (SMB)
+Now we create a shared folder so you can drag and drop music files from your Windows PC or Mac over Wi-Fi:
+
+Go to Storage > Shared Folders and click + to create a new folder. Name it Music and select your main root file system.
 
 Go to Services > SMB/CIFS > Settings and check the Enable box.
 
 Go to Services > SMB/CIFS > Shares, click +, select your Music folder, and set Public to Guests allowed.
 
-The Permissions Fix: If Windows/Mac won't let you copy files into the folder, go back to Storage > Shared Folders, highlight the Music folder, and click the ACL button (the gear/key icon). Scroll to the bottom and change the "Others" dropdown to Read/Write/Execute. Check Replace existing permissions and hit Save.
+The Permissions Fix: If Windows or macOS won't let you copy files into the folder, go back to Storage > Shared Folders, select the Music folder, and click the ACL button (the gear/key icon). Scroll to the bottom, change the Others dropdown to Read/Write/Execute, check Replace existing permissions, and click Save.
 
-Phase 5: The DLNA Fix
-Your computer can now see the drive, but SoundTouch speakers cannot read standard Windows (SMB) folders. They require a specific streaming protocol called DLNA.
+Phase 5: Enable the Bose DLNA Server
+Bose SoundTouch speakers require the UPnP/DLNA streaming protocol to browse and play tracks:
 
 Go to System > Plugins and search for dlna.
 
 Install the openmediavault-minidlna plugin.
 
-Go to Services > DLNA > Settings and check Enable.
+Navigate to Services > DLNA > Settings and check Enable.
 
-Go to the Shares tab, click +, and select your Music folder.
+Switch to the Shares tab, click +, and select your Music folder.
 
-Click Rescan on the Settings tab so the server indexes all your albums.
+Click Rescan on the Settings tab so the server indexes your albums and tracks.
 
-🎉 You're Done!
-
-If you are using the Controller Pro app (or any local Marge bypass solution) to manage your system post-shutdown, just go to Settings > Browse Local NAS > Add. Your repurposed laptop will proudly appear, ready to stream your entire local collection to your speakers instantly.
-
-Hope this helps some folks rescue their hardware without breaking the bank! Let me know if you run into any permission issues setting this up.
+🎉 Linking Your New NAS to SoundTouch
+Open the Controller Pro app (with your Controller Cube or Controller Cube OS active on the network), navigate to Settings (Gear Icon) > Browse Local NAS > + Add, and tap your new OpenMediaVault server. Our Smart NAS Injector will permanently lock the DLNA UUID into your SoundTouch speakers!
