@@ -42,6 +42,6 @@ USB thumb drives and manual SSH/Telnet terminal commands are officially retired.
 - 📖 **Primary User Manual:** [Google Sites Manual](https://sites.google.com/view/controller-pro-user-manual/home)
 - 📖 **Controller Cube Manual Mirror:** [Controller Cube Web Manual](https://jonnywhy2274-byte.github.io/controller-pro-manual/)
 - 🎥 **Video Tutorials & Demo:** [Official YouTube Playlist](https://www.youtube.com/playlist?list=PLGSxQe_HudUg)
-- **Site Info for Directories etc:**[Controller Pro Pad XML](https://controllerpro.app/controller-pro-pad.xml)
+- **Site Info for Directories etc:** [Controller Pro Pad XML](https://controllerpro.app/controller-pro-pad.xml)
 ---
 *Engineered by John Why. Zero telemetry. Built for the music.*
